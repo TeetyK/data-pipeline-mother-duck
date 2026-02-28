@@ -9,9 +9,9 @@ astro dev restart
 mother_duck_api = "API_HERE"
 ```
 # Airflow UI
-test run pipline per daily
+test run pipline per daily <br>
 <img src="Airflow.png" width=500 height=500>
 
 # MotherDuck (on Cloud free)
-test query data
+test query data <br>
 <img src='MotherDuck.png' width=500 height=500>
