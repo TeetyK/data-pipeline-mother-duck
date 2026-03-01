@@ -6,6 +6,8 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "apache-airflow==2.10.0",
+    "dbt-core>=1.11.6",
+    "dbt-duckdb>=1.10.1",
     "duckdb>=1.4.4",
     "google-auth>=2.48.0",
     "google-auth-httplib2>=0.3.0",
