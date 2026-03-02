@@ -1,0 +1,7 @@
+data-pipeline-mother-duck:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: "md:my_db?token={{ env_var('MOTHERDUCK_TOKEN')}}"
+      schema: main
