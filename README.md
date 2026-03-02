@@ -22,3 +22,9 @@ test query data <br>
 test extract data from api to pipeline into duckdb <br>
 <img src='Airflow2.png' width=500 height=500>
 <img src='MotherDuck2.png' width=500 height=500><br>
+
+# run Transform
+
+```bash
+uv run dbt init --name
+```
