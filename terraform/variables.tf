@@ -12,11 +12,11 @@ variable "gcs_bucket_name" {
 }
 variable "region" {
   description = "Google Cloud region"
-  default     = "us-centrail"
+  default     = "us-central1"
 }
 variable "zone" {
   description = "Google Cloud zone"
-  default     = "us-centrail-a"
+  default     = "us-central1-a"
 }
 variable "location" {
   description = "Google Cloud location"

@@ -12,3 +12,28 @@ wheels/
 *.json
 keys/
 terraform/.terraform
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.lock
+*.tfstate.backup
+crash.log
+*.crash
+
+# Service Account Keys
+*.json
+!backend.tf.json  # ยกเว้นถ้าจำเป็นจริงๆ
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Local variables containing secrets
+terraform.tfvars
+*.auto.tfvars

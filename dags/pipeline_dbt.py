@@ -1,5 +1,3 @@
-from cosmos import DbtDag , ProjectConfig , ProfileConfig
-
 from cosmos import DbtDag, ProjectConfig, ProfileConfig
 
 # dbt_dag = DbtDag(
