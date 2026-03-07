@@ -6,6 +6,10 @@ variable "project_id" {
   description = "Google Project ID"
   default     = "pipeline-partice"
 }
+variable "billing_id" {
+  description = "Google Billing Project"
+  default     = "pipeline-partice"
+}
 variable "gcs_bucket_name" {
   description = "GCS Bucket Name"
   default     = "pipeline-partice"
