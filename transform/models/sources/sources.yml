@@ -1,0 +1,6 @@
+sources:
+  - name: bronze
+    database: pipeline-partice
+    schema: bronze
+    tables:
+      - name: myc_taxi
