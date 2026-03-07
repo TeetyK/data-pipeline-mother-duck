@@ -27,4 +27,8 @@ test extract data from api to pipeline into duckdb <br>
 
 ```bash
 uv run dbt init --name
+uv run --with dbt-bigquery dbt build --select br_raw
+uv run --with dbt-bigquery dbt build --select sil_clean
+uv run --with dbt-bigquery dbt build --select gold_business
+
 ```
