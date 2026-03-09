@@ -30,5 +30,6 @@ uv run dbt init --name
 uv run --with dbt-bigquery dbt build --select br_raw
 uv run --with dbt-bigquery dbt build --select sil_clean
 uv run --with dbt-bigquery dbt build --select gold_business
-
+uv run --with dbt-bigquery dbt test
+uv run --with dbt-bigquery dbt test --select myc_taxi
 ```
