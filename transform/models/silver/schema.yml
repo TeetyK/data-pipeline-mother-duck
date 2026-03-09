@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: myc_taxi
+    descriptions: "ข้อมูลรถ Taxi"
+    columns:
+      - name: hvfhs_license_num
+        tests:
+          - not_null
+      - name: dispatching_base_num
+        tests:
+          - not_null
+      - name: request_ts
+        tests:
+          - not_null
+      - name: pickup_ts
+        tests:
+          - not_null
+      - name: dropoff_ts
+        tests:
+          - not_null
+      - name: PULocationID
+        tests:
+          - not_null
+          - relationships:
+              to: ref('dim_zones')
+              field: location_id
+      - name: DOLocationID
+        tests:
+          - not_null
+          - relationships:
+            to: ref('dim_zones')
+            field: location_id
+      - name: base_passenger_fare
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: tips
+        tests:
+          - dbt_utils.accepted_range:
+              min_value: 0
+              inclusive: true
+      - name: is_shared_request
+        tests:
+          - not_null
+          - accepted_values:
+              values: [true , false]
