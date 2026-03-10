@@ -15,8 +15,12 @@ jobs:
       - name: python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.12
+          python-version: '3.12'
       - name: install dependencies
         run: |
           pip install uv
-          uv pip install -r requirements.txt
+      - name: virtual environment
+        run: |
+          uv venv
+          source .venv/bin/activate
+          uv pip install -r requirements.txt pytest
