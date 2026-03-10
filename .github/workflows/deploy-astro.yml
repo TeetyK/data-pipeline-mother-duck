@@ -1,0 +1,13 @@
+name: deploy-astro
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  say-hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: test_hello
+        run: echo "Hello World!"
