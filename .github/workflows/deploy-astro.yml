@@ -5,9 +5,18 @@ on:
     branches: [main]
 
 jobs:
-  say-hello:
+  init_project:
     runs-on: ubuntu-latest
 
     steps:
-      - name: test_hello
-        run: echo "Hello World!"
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.12
+      - name: install dependencies
+        run: |
+          pip install uv
+          uv pip install -r requirements.txt
