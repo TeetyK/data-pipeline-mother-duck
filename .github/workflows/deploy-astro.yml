@@ -25,7 +25,9 @@ jobs:
       #     source .venv/bin/activate
       #     uv pip install -r requirements.txt pytest
       - name: Setup Astro CLI
-        uses: astronomer/astro-github-action@v1
+        uses: astronomer/setup-astro@v1
+        with:
+          version: latest
 
       - name: Run pytest for dags
         run: |
