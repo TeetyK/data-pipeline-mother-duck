@@ -56,7 +56,7 @@ def load_to_duckdb(**context):
 default_args = {
     'owner': 'practice',
     'start_date': datetime(2026, 3, 1),
-    'retries': 1,
+    'retries': 2,
 }
 
 with DAG(

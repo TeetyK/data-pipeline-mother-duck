@@ -9,7 +9,9 @@ with DAG(
     dag_id='etl_pipeline',
     start_date=datetime(2026, 1, 1),
     schedule='@daily', 
-    catchup=False
+    catchup=False,
+    tags=['etl','gcs'],
+    default_args={'owner':'TeetyK','retries':2}
 ) as dag:
 
     bronze_task = BashOperator(
