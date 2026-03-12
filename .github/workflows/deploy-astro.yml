@@ -12,18 +12,18 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
       
-      # - name: python
-      #   uses: actions/setup-python@v4
-      #   with:
-      #     python-version: '3.12'
-      # - name: install dependencies
-      #   run: |
-      #     pip install uv
-      # - name: virtual environment
-      #   run: |
-      #     uv venv
-      #     source .venv/bin/activate
-      #     uv pip install -r requirements.txt pytest
+      - name: python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      - name: install dependencies
+        run: |
+          pip install uv
+      - name: virtual environment
+        run: |
+          uv venv
+          source .venv/bin/activate
+          uv pip install -r requirements.txt pytest
       - name: Install Astro CLI
         run: |
           curl -sSL https://install.astronomer.io | sudo bash -s

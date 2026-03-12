@@ -1,5 +1,6 @@
-from airflow import DAG , task
-from airflow.operators.python import PythonOperator
+from airflow import DAG
+from airflow.operators.bash import BashOperator
+from airflow.operators.python import PythonOperator 
 from datetime import datetime
 import os
 
@@ -11,25 +12,20 @@ with DAG(
     catchup=False
 ) as dag:
 
-    @task.bash
-    def bronze():
-        return """
-            cd F:\\data-pipeline-mother-duck\\transform
-            uv run --with dbt-bigquery dbt build --select br_raw
-            """
-    @task.bash
-    def silver():
-        return """
-            cd F:\\data-pipeline-mother-duck\\transform
-            uv run --with dbt-bigquery dbt build --select sil_clean
-            """
-    @task.bash
-    def gold():
-        return """
-            cd F:\\data-pipeline-mother-duck\\transform
-            uv run --with dbt-bigquery dbt build --select gold_business
-            """
-    t1 = bronze()
-    t2 = silver()
-    t3 = gold()
-    t1 >> t2 >> t3
+    bronze_task = BashOperator(
+        task_id='bronze',
+        bash_command='uv run --with dbt-bigquery dbt build --select br_raw',
+        cwd='F:\\data-pipeline-mother-duck\\transform'
+    )
+    silver_task = BashOperator(
+        task_id='silver',
+        bash_command='uv run --with dbt-bigquery dbt build --select sil_clean',
+        cwd='F:\\data-pipeline-mother-duck\\transform'
+    )
+    gold_task = BashOperator(
+        task_id='gold',
+        bash_command='uv run --with dbt-bigquery dbt build --select gold_business',
+        cwd='F:\\data-pipeline-mother-duck\\transform'
+    )
+
+    bronze_task >> silver_task >> gold_task
