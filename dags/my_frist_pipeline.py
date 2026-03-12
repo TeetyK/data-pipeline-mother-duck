@@ -24,7 +24,9 @@ with DAG(
     dag_id='my_motherduck_pipeline',
     start_date=datetime(2026, 1, 1),
     schedule='@daily', 
-    catchup=False
+    catchup=False,
+    tags=['etl','manual'],
+    default_args={'owner':'TeetyK','retries':2}
 ) as dag:
 
     extract_task = PythonOperator(
